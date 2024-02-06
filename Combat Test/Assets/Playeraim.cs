@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Playeraim : MonoBehaviour
 {
@@ -17,14 +18,11 @@ public class Playeraim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 newposition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        newposition.z = 0;
+        Vector3 Gundirection = (Input.GetAxis("Horizontal2"));
+        Gundirection.z = 0;
+        gun.right = Gundirection;
 
-        Vector3 vectorbetweenaimAndPlayer = newposition - gun.position;
-        vectorbetweenaimAndPlayer = vectorbetweenaimAndPlayer.normalized;
-        gun.right = vectorbetweenaimAndPlayer;
-
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("ZR"))
         {
             GameObject spawnedProjectile = Instantiate(projectileprefab, gun.position, Quaternion.identity);
             Rigidbody2D rbOnProjectile = spawnedProjectile.GetComponent<Rigidbody2D>();
