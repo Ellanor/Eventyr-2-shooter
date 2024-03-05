@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class Playeraim : MonoBehaviour
 {
-    public Transform gun;
+    public Transform Spawner;
+    public Transform Gun;
     public GameObject projectileprefab;
     public float ProjectileSpeed;
     public float BulletDestroyTime;
+
+    Vector2 Gundirection = Vector2.one;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,15 +22,16 @@ public class Playeraim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 Gundirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        gun.right = Gundirection;
+        if (Input.GetAxis("Horizontal2") != 0 || Input.GetAxis("Vertical2") != 0)
+            Gundirection = new Vector2(Input.GetAxis("Horizontal2"), Input.GetAxis("Vertical2"));
+        Gun.right = Gundirection;
 
         if (Input.GetButtonDown("Fire1"))
         {
             Debug.Log("over 0");
-            GameObject spawnedProjectile = Instantiate(projectileprefab, gun.position, Quaternion.identity);
+            GameObject spawnedProjectile = Instantiate(projectileprefab,Spawner.position, Quaternion.identity);
             Rigidbody2D rbOnProjectile = spawnedProjectile.GetComponent<Rigidbody2D>();
-            rbOnProjectile.velocity = Gundirection * ProjectileSpeed;
+            rbOnProjectile.velocity = Gundirection.normalized * ProjectileSpeed;
             Destroy(spawnedProjectile, BulletDestroyTime);
         }
     }
