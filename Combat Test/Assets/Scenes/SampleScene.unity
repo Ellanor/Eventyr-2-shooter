@@ -382,7 +382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 460569304}
   projectileprefab: {fileID: 1202818389738627874, guid: ee1e91429c76e5e4482d6e895f6b3de0, type: 3}
-  ProjectileSpeed: 10.02
+  ProjectileSpeed: 10
   BulletDestroyTime: 0.78
 --- !u!50 &735938903
 Rigidbody2D:

@@ -29,7 +29,7 @@ public class PlayerMove : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "projectile")
+        if (collision.gameObject.tag == "projectilePlayer2")
         {
             Destroy(gameObject);
         }

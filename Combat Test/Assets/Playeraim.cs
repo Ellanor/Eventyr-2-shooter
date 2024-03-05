@@ -12,21 +12,21 @@ public class Playeraim : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 Gundirection = (Input.GetAxis("Horizontal2"));
-        Gundirection.z = 0;
+        Vector2 Gundirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         gun.right = Gundirection;
 
-        if (Input.GetButtonDown("ZR"))
+        if (Input.GetButtonDown("Fire1"))
         {
+            Debug.Log("over 0");
             GameObject spawnedProjectile = Instantiate(projectileprefab, gun.position, Quaternion.identity);
             Rigidbody2D rbOnProjectile = spawnedProjectile.GetComponent<Rigidbody2D>();
-            rbOnProjectile.velocity = vectorbetweenaimAndPlayer * ProjectileSpeed;
+            rbOnProjectile.velocity = Gundirection * ProjectileSpeed;
             Destroy(spawnedProjectile, BulletDestroyTime);
         }
     }
