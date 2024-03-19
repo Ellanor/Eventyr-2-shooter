@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Playeraim : MonoBehaviour
+public class Player2aim : MonoBehaviour
 {
     public Transform Spawner;
     public Transform Gun;
@@ -34,10 +34,5 @@ public class Playeraim : MonoBehaviour
             rbOnProjectile.velocity = Gundirection.normalized * ProjectileSpeed;
             Destroy(spawnedProjectile, BulletDestroyTime);
         }
-
-    }
-    public void OnCollisionEnter2D(Collision2D collision) 
-    {
-
     }
 }

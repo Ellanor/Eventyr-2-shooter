@@ -6,6 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField]
     float MoveSpeed = 5f;
+    float Health = 10f;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -26,12 +27,17 @@ public class PlayerMove : MonoBehaviour
         pos *= MoveSpeed;
         rb.velocity = pos;
         //husk at bruge en rigidbody hvis movement skal virke
+        if (Health == 0)
+        {
+            Destroy(gameObject);
+        }
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "projectilePlayer2")
         {
-            Destroy(gameObject);
+            Health -= 1f;
+            Destroy(collision.gameObject);
         }
 
     }
