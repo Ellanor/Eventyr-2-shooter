@@ -6,6 +6,7 @@ public class Player2Move : MonoBehaviour
 {
     [SerializeField]
     float MoveSpeed = 5f;
+    float Health2 = 5f;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -17,35 +18,25 @@ public class Player2Move : MonoBehaviour
     void Update()
     {
         Vector3 pos = Vector3.zero;
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            pos.x = -1;
-            Debug.Log("works");
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            pos.x = 1;
-        }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            pos.y = 1;
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            pos.y = -1;
-        }
+        pos.x = Input.GetAxis("HorizontalPlayer2");
+        pos.y = Input.GetAxis("VerticalPlayer2");
         pos = pos.normalized;
         //transform.position += pos * Time.deltaTime * MoveSpeed;
         //Navn.normalized gør at vektoren altid er samme længde (Sætter den altid til 1) og fikser ekstra speed på diagonal. 
         //Fordi vektoren er det samme skal man gange med variabel og sætte navn.y/x til 1.
         pos *= MoveSpeed;
         rb.velocity = pos;
+        if (Health2 == 0)
+        {
+            Destroy(gameObject);
+        }
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "projectile")
+        if (collision.gameObject.tag == "projectilePlayer1")
         {
-            Destroy(gameObject);
+            Health2 -= 1f;
+            Destroy(collision.gameObject);
         }
 
     }
