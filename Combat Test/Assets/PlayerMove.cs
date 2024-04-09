@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    
     [SerializeField]
     float MoveSpeed = 5f;
+    public float HealthUpdate = 0f;
     [SerializeField]
     float Health = 10f;
     Rigidbody2D rb;
@@ -39,6 +41,7 @@ public class PlayerMove : MonoBehaviour
         {
             Health -= 1f;
             Destroy(collision.gameObject);
+            HealthUpdate = 1f;
         }
 
     }

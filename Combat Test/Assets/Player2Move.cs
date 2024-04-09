@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player2Move : MonoBehaviour
 {
+    public float HealthUpdate2 = 0f;
     [SerializeField]
     float MoveSpeed = 5f;
     [SerializeField]
@@ -38,6 +39,7 @@ public class Player2Move : MonoBehaviour
         {
             Health2 -= 1f;
             Destroy(collision.gameObject);
+            HealthUpdate2 = 1f;
         }
 
     }
