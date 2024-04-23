@@ -8,7 +8,7 @@ public class Player2Move : MonoBehaviour
     [SerializeField]
     float MoveSpeed = 5f;
     [SerializeField]
-    float Health2 = 5f;
+    float Health2 = 10f;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -31,6 +31,7 @@ public class Player2Move : MonoBehaviour
         if (Health2 == 0)
         {
             Destroy(gameObject);
+            
         }
     }
     public void OnCollisionEnter2D(Collision2D collision)

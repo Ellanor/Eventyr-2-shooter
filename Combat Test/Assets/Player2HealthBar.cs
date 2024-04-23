@@ -7,20 +7,21 @@ public class Player2HealthBar : MonoBehaviour
 {
     public Image healthBar2;
     public float healthAmount2 = 10f;
+    private Player2Move movement;
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Player2Move>();
+        movement = FindObjectOfType<Player2Move>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (HealthUpdate2 = 1)
+        if (movement.HealthUpdate2 == 1)
         {
             TakeDamage2(1);
-            HealthUpdate2 = 0f;
+            movement.HealthUpdate2 = 0f;
         }
 
     }

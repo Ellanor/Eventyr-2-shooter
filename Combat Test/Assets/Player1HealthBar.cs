@@ -7,17 +7,22 @@ public class Player1HealthBar : MonoBehaviour
 {
     public Image healthBar;
     public float healthAmount = 10f;
+    private PlayerMove movement;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        movement = FindObjectOfType<PlayerMove>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (movement.HealthUpdate == 1)
+        {
+            TakeDamage(1);
+            movement.HealthUpdate = 0f;
+        }
 
     }
 
@@ -35,12 +40,5 @@ public class Player1HealthBar : MonoBehaviour
         healthBar.fillAmount = healthAmount / 10f;
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "projectilePlayer2")
-        {
-            TakeDamage(1);
-        }
-    }
 
 }
