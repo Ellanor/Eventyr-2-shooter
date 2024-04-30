@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player2Move : MonoBehaviour
 {
+    public static bool GameOverUpdate = false;
     public float HealthUpdate2 = 0f;
     [SerializeField]
     float MoveSpeed = 5f;
@@ -30,7 +31,8 @@ public class Player2Move : MonoBehaviour
         rb.velocity = pos;
         if (Health2 == 0)
         {
-            Destroy(gameObject);
+            GameOverUpdate = true;
+            Destroy(gameObject,0.1f);
             
         }
     }
