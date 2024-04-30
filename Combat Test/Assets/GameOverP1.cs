@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class GameOverP1 : MonoBehaviour
 {
-    public GameObject GameOverScreen;
+    public GameObject GameOverScreen1;
+    public GameObject GameOverScreen2;
    
     // Start is called before the first frame update
     void Start()
     {
-        GameOverScreen.SetActive(false);
+        GameOverScreen1.SetActive(false);
+        GameOverScreen2.SetActive(false);
        
     }
     private void Update()
@@ -22,7 +24,11 @@ public class GameOverP1 : MonoBehaviour
         if (Player2Move.GameOverUpdate)
         {
             Debug.Log("test");
-            GameOverScreen.SetActive(true);
+            GameOverScreen2.SetActive(true);
+        }
+        if (PlayerMove.GameOverUpdate)
+        {
+            GameOverScreen1.SetActive(true);
         }
     }
 }

@@ -2,15 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player2Move : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    public static bool GameOverUpdate = false;
-    public float HealthUpdate2 = 0f;
-    [SerializeField]
-    float MoveSpeed = 5f;
-    [SerializeField]
-    float Health2 = 10f;
     Rigidbody2D rb;
+    public float Speed =4; 
     // Start is called before the first frame update
     void Start()
     {
@@ -41,22 +36,14 @@ public class Player2Move : MonoBehaviour
         //normalize sætter længden på vectoren til 1
         retning = retning.normalized;
         //transform.position += retning *Time.deltaTime * Speed;
-        rb.velocity = retning * MoveSpeed;
-        if (Health2 == 0)
-        {
-            GameOverUpdate = true;
-            Destroy(gameObject,0.1f);
-            
-        }
+        rb.velocity = retning * Speed;
     }
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "projectilePlayer1")
+        if(collision.gameObject.tag == "Enemy")
         {
-            Health2 -= 1f;
-            Destroy(collision.gameObject);
-            HealthUpdate2 = 1f;
+            Destroy(gameObject);
         }
-
     }
 }

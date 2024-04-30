@@ -11,6 +11,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     float Health = 10f;
     Rigidbody2D rb;
+    public static bool GameOverUpdate = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +34,7 @@ public class PlayerMove : MonoBehaviour
         if (Health == 0)
         {
             Destroy(gameObject);
+            GameOverUpdate = true;
         }
     }
     public void OnCollisionEnter2D(Collision2D collision)

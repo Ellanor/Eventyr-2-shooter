@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 4864131383844072085}
   m_Layer: 0
   m_Name: PlayerParent
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,7 +275,7 @@ MonoBehaviour:
   Gun: {fileID: 1837283322367774321}
   projectileprefab: {fileID: 1202818389738627874, guid: ee1e91429c76e5e4482d6e895f6b3de0, type: 3}
   ProjectileSpeed: 10
-  BulletDestroyTime: 0.78
+  BulletDestroyTime: 1.6
 --- !u!114 &1110597016009262225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 10
+  HealthUpdate: 0
   Health: 10
 --- !u!50 &7630324525262685943
 Rigidbody2D:

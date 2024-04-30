@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player2aim : MonoBehaviour
+public class Player1aim : MonoBehaviour
 {
     public Transform Spawner;
     public Transform Gun;
@@ -32,7 +32,13 @@ public class Player2aim : MonoBehaviour
             GameObject spawnedProjectile = Instantiate(projectileprefab,Spawner.position, Quaternion.identity);
             Rigidbody2D rbOnProjectile = spawnedProjectile.GetComponent<Rigidbody2D>();
             rbOnProjectile.velocity = Gundirection.normalized * ProjectileSpeed;
+            spawnedProjectile.AddComponent<Projectile>();
             Destroy(spawnedProjectile, BulletDestroyTime);
         }
+
+    }
+    public void OnCollisionEnter2D(Collision2D collision) 
+    {
+
     }
 }
