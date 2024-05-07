@@ -39,6 +39,6 @@ public class Player1aim : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision) 
     {
-
+       
     }
 }

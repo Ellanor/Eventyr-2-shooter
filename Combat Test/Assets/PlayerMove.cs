@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    Animator animator;
+    
+    public Animator animator;
     [SerializeField]
     float MoveSpeed = 5f;
     public float HealthUpdate = 0f;
@@ -16,7 +17,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
