@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    
+    Animator animator;
     [SerializeField]
     float MoveSpeed = 5f;
     public float HealthUpdate = 0f;
@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -35,6 +36,7 @@ public class PlayerMove : MonoBehaviour
         {
             Destroy(gameObject);
             GameOverUpdate = true;
+            
         }
     }
     public void OnCollisionEnter2D(Collision2D collision)
@@ -44,6 +46,7 @@ public class PlayerMove : MonoBehaviour
             Health -= 1f;
             Destroy(collision.gameObject);
             HealthUpdate = 1f;
+            animator.SetTrigger("dmg");
         }
 
     }
