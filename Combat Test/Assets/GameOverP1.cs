@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverP1 : MonoBehaviour
 {
@@ -10,8 +11,7 @@ public class GameOverP1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameOverScreen1.SetActive(false);
-        GameOverScreen2.SetActive(false);
+
        
     }
     private void Update()
@@ -29,6 +29,15 @@ public class GameOverP1 : MonoBehaviour
         if (PlayerMove.GameOverUpdate)
         {
             GameOverScreen1.SetActive(true);
+        }
+        if (GameOverScreen1 == true || GameOverScreen2 == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                PlayerMove.GameOverUpdate = false;
+                Player2Move.GameOverUpdate = false;
+                UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            }
         }
     }
 }

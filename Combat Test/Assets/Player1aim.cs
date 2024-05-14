@@ -26,7 +26,7 @@ public class Player1aim : MonoBehaviour
             Gundirection = new Vector2(Input.GetAxis("Horizontal2"), Input.GetAxis("Vertical2"));
         Gun.right = Gundirection;
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire2"))
         {
             Debug.Log("over 0");
             GameObject spawnedProjectile = Instantiate(projectileprefab,Spawner.position, Quaternion.identity);
